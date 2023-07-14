@@ -4,6 +4,7 @@ public class ShopPricePrinter {
 
   public static void main(String[] args) {
 
+    // TODO: You can remove these print statements whenever you like.
     System.out.println("Rose Pharmacy water is worth P40.");
     System.out.println("Dimsum Break water is worth P50.");
 
