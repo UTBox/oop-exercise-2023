@@ -4,6 +4,8 @@ If you can set it up as a PR, that would be appreciated.
 
 You can push anytime into your branch. Don't worry about completing all the requirements before pushing.  
 
+***
+
 Exercise Requirements:
 - Should have at least 3 different shops
 - Each shop should have at least 3 products
