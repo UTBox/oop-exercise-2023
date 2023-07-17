@@ -1,17 +1,28 @@
-
+import java.sql.SQLOutput;
 
 public class ShopPricePrinter {
 
   public static void main(String[] args) {
+    CoffeeShop coffeeBeanTeaLeaf = new CoffeeBeanTeaLeaf();
+    CoffeeShop abacaBaking = new AbacaBaking();
+    CoffeeShop bosCoffee = new BosCoffee();
+    ProductPrinter menu = new ProductPrinter();
 
-    // TODO: You can remove these print statements whenever you like.
-    System.out.println("Rose Pharmacy water is worth P40.");
-    System.out.println("Dimsum Break water is worth P50.");
+    menu.printProducts(coffeeBeanTeaLeaf);
+    menu.printProducts(abacaBaking);
+    menu.printProducts(bosCoffee);
 
-    // TODO: For each shop, print all their products
+    System.out.println("----- Most Expensive Products -----");
+    menu.printMostExpensiveProduct(coffeeBeanTeaLeaf);
+    menu.printMostExpensiveProduct(abacaBaking);
+    menu.printMostExpensiveProduct(bosCoffee);
+    System.out.println("-----------------------------------");
 
-    // TODO: For each shop, print the most expensive product
+    System.out.println("----- Least Expensive Products -----");
+    menu.printLeastExpensiveProduct(coffeeBeanTeaLeaf);
+    menu.printLeastExpensiveProduct(abacaBaking);
+    menu.printLeastExpensiveProduct(bosCoffee);
+    System.out.println("-----------------------------------");
 
-    // TODO: For each shop, print the least expensive product
   }
 }
