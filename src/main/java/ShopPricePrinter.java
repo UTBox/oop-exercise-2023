@@ -4,10 +4,6 @@ public class ShopPricePrinter {
 
   public static void main(String[] args) {
 
-    // TODO: You can remove these print statements whenever you like.
-    System.out.println("Rose Pharmacy water is worth P40.");
-    System.out.println("Dimsum Break water is worth P50.");
-
     Product[] mercuryProducts = {
             new Product("Shampoo", 10.99),
             new Product("Soap", 20.50),
@@ -66,10 +62,5 @@ public class ShopPricePrinter {
     }
 
     scanner.close();
-    // TODO: For each shop, print all their products
-
-    // TODO: For each shop, print the most expensive product
-
-    // TODO: For each shop, print the least expensive product
   }
 }
