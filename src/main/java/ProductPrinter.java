@@ -4,6 +4,7 @@ import java.util.HashMap;
 import java.util.ArrayList;
 
 public class ProductPrinter {
+    public ProductInfo productInfo = new ProductInfo();
     public void printProducts(CoffeeShop coffeeShop) {
         HashMap<String, Double> productHashMap = coffeeShop.getProducts();
         String[] productNames = productHashMap.keySet().toArray(new String[0]);
@@ -17,14 +18,16 @@ public class ProductPrinter {
     }
 
     public void printLeastExpensiveProduct(CoffeeShop coffeeShop) {
-        System.out.println(coffeeShop.getShopName() + " -- " +
-                coffeeShop.getLeastExpensiveProduct() + " -  P " +
-                coffeeShop.getProducts().get(coffeeShop.getLeastExpensiveProduct()));
+        String leastExpensiveProduct = productInfo.getLeastExpensiveProduct(coffeeShop);
+
+        System.out.println(coffeeShop.getShopName() + " -- " + leastExpensiveProduct
+                + " -  P " + coffeeShop.getProducts().get(leastExpensiveProduct));
     }
 
     public void printMostExpensiveProduct(CoffeeShop coffeeShop) {
-        System.out.println(coffeeShop.getShopName() + " -- " +
-                coffeeShop.getMostExpensiveProduct() + " -  P " +
-                coffeeShop.getProducts().get(coffeeShop.getMostExpensiveProduct()));
+        String mostExpensiveProduct = productInfo.getMostExpensiveProduct(coffeeShop);
+
+        System.out.println(coffeeShop.getShopName() + " -- " + mostExpensiveProduct
+                + " -  P " + coffeeShop.getProducts().get(mostExpensiveProduct));
     }
 }

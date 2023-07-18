@@ -4,8 +4,6 @@ import java.util.HashMap;
 
 public class AbacaBaking implements CoffeeShop{
     private HashMap<String, Double> shopProducts;
-    private ArrayList<String> productNameList;
-    private ArrayList<Double> productPriceList;
 
     public AbacaBaking() {
         shopProducts = new HashMap<String, Double>();
@@ -25,28 +23,6 @@ public class AbacaBaking implements CoffeeShop{
     @Override
     public HashMap<String, Double> getProducts() {
         return this.shopProducts;
-    }
-
-    @Override
-    public String getLeastExpensiveProduct() {
-        productNameList = new ArrayList<>(getProducts().keySet());
-        productPriceList = new ArrayList<>(getProducts().values());
-
-        double minPrice = Collections.min(productPriceList);
-        int minPriceIndex = productPriceList.indexOf(minPrice);
-
-        return productNameList.get(minPriceIndex);
-    }
-
-    @Override
-    public String getMostExpensiveProduct() {
-        productNameList = new ArrayList<>(getProducts().keySet());
-        productPriceList = new ArrayList<>(getProducts().values());
-
-        double maxPrice = Collections.max(productPriceList);
-        int maxPriceIndex = productPriceList.indexOf(maxPrice);
-
-        return productNameList.get(maxPriceIndex);
     }
 
     @Override
