@@ -1,37 +1,17 @@
 public class Shop {
     private final String shopName;
-    private final Product[] products;
+    private final IProduct product;
 
-    public Shop(String shopName, Product[] product) {
+    public Shop(String shopName, IProduct products) {
         this.shopName = shopName;
-        this.products = product;
+        this.product = products;
     }
 
     public String getShopName() {
         return shopName;
     }
 
-    public Product[] getProducts() {
-        return  products;
-    }
-
-    public Product getMostExpensiveProduct() {
-        Product mostExpensive = products[0];
-        for (Product product : products) {
-            if (product.getProductPrice() > mostExpensive.getProductPrice()) {
-                mostExpensive = product;
-            }
-        }
-        return mostExpensive;
-    }
-
-    public Product getLeastExpensiveProduct() {
-        Product leastExpensive = products[0];
-        for (Product product : products) {
-            if (product.getProductPrice() < leastExpensive.getProductPrice()) {
-                leastExpensive = product;
-            }
-        }
-        return leastExpensive;
+    public IProduct getProducts() {
+        return  product;
     }
 }
