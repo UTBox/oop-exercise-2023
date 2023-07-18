@@ -1,5 +1,5 @@
 public interface IProduct {
     Product[] getProducts();
-    Product getMostExpensive();
-    Product getLessExpensive();
+    Product getMostExpensiveProduct();
+    Product getLeastExpensiveProduct();
 }
