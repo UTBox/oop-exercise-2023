@@ -5,8 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="9b57fe04-fa04-4253-a725-ac3a2099315f" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/IProduct.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/ShopProducts.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/IProduct.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/IProduct.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Product.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Product.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Shop.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Shop.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/ShopPricePrinter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ShopPricePrinter.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -22,8 +25,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Class" />
         <option value="Interface" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -79,7 +82,7 @@
       <workItem from="1689517195426" duration="4020000" />
       <workItem from="1689557891502" duration="4789000" />
       <workItem from="1689567064318" duration="851000" />
-      <workItem from="1689644584413" duration="2530000" />
+      <workItem from="1689644584413" duration="4917000" />
     </task>
     <servers />
   </component>
