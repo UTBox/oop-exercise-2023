@@ -1,6 +1,6 @@
 public class Shop {
-    private String shopName;
-    private Product[] products;
+    private final String shopName;
+    private final Product[] products;
 
     public Shop(String shopName, Product[] product) {
         this.shopName = shopName;

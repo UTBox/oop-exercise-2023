@@ -29,7 +29,7 @@ public class ShopPricePrinter {
     Shop[] shops = {
             new Shop("Mercury Drug Store", mercuryProducts),
             new Shop("Rose Pharmacy", roseProducts),
-            new Shop("Watsons", watsonsProducts)
+            new Shop("Watsons Pharmacy", watsonsProducts)
     };
 
     Scanner scanner = new Scanner(System.in);
