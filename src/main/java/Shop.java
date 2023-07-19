@@ -12,6 +12,6 @@ public class Shop {
     }
 
     public IProduct getProducts() {
-        return  product;
+        return product;
     }
 }

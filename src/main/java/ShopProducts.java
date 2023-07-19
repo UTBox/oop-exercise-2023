@@ -1,13 +1,11 @@
 public class ShopProducts implements IProduct{
-    private Product[] products;
+    private final Product[] products;
 
     public ShopProducts(Product[] products) {
         this.products = products;
     }
     @Override
-    public Product[] getProducts() {
-        return products;
-    }
+    public Product[] getProducts() { return products; }
 
     @Override
     public Product getMostExpensiveProduct() {
