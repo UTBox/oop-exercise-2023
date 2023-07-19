@@ -4,14 +4,30 @@ public class ShopPricePrinter {
 
   public static void main(String[] args) {
 
-    // TODO: You can remove these print statements whenever you like.
-    System.out.println("Rose Pharmacy water is worth P40.");
-    System.out.println("Dimsum Break water is worth P50.");
+    ALitteTea aLitteTea = new ALitteTea();
 
-    // TODO: For each shop, print all their products
+    System.out.println("~Available products from "+ aLitteTea.shopName + "~");
+    aLitteTea.getAvailableProducts();
+    aLitteTea.getMostExpensiveProduct();
+    aLitteTea.getCheapestProduct();
 
-    // TODO: For each shop, print the most expensive product
+    System.out.println();
 
-    // TODO: For each shop, print the least expensive product
+    MacauImperial macauImperial = new MacauImperial();
+
+    System.out.println("~Available products from "+ macauImperial.shopName + "~");
+    macauImperial.getAvailableProducts();
+    macauImperial.getMostExpensiveProduct();
+    macauImperial.getCheapestProduct();
+
+    System.out.println();
+
+    GongCha gongCha = new GongCha();
+
+    System.out.println("~Available products from "+ gongCha.shopName + "~");
+    gongCha.getAvailableProducts();
+    gongCha.getMostExpensiveProduct();
+    gongCha.getCheapestProduct();
+
   }
 }
