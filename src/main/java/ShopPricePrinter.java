@@ -1,17 +1,24 @@
-
-
 public class ShopPricePrinter {
-
   public static void main(String[] args) {
+    TobysBadmintonShop myShop1 = new TobysBadmintonShop();
+    System.out.println("=Tobys Badminton Shop=");
+    System.out.println("-" + myShop1.firstItem);
+    System.out.println("-" + myShop1.secondItem);
+    System.out.println(myShop1.thirdItem + "\n");
 
-    // TODO: You can remove these print statements whenever you like.
-    System.out.println("Rose Pharmacy water is worth P40.");
-    System.out.println("Dimsum Break water is worth P50.");
 
-    // TODO: For each shop, print all their products
+    NikeShop myShop2 = new NikeShop();
+    System.out.println("=Nike Shop=");
+    System.out.println("-" + myShop2.firstItem);
+    System.out.println("-" + myShop2.secondItem);
+    System.out.println("-" + myShop2.thirdItem + "\n");
 
-    // TODO: For each shop, print the most expensive product
+    AdidasShop myShop3 = new AdidasShop();
+    System.out.println("=Adidas Shop=");
+    System.out.println("-" + myShop3.firstItem);
+    System.out.println("-" + myShop3.secondItem);
+    System.out.println("-" + myShop3.thirdItem);
 
-    // TODO: For each shop, print the least expensive product
+
   }
 }
