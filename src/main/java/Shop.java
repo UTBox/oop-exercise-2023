@@ -1,19 +1,56 @@
-import java.util.HashMap;
+import java.util.*;
 public class Shop {
-    public static String shopName;
-    public static HashMap<String, Integer> prod = new HashMap<String, Integer>();
 
-    public static void setProd(String product, Integer value){
-        prod.put(product, value);
+    private String name;
+    private Map<String, Double> products;
+
+    public Shop(String name) {
+        this.name = name;
+        this.products = new HashMap<>();
     }
-    public static void printAllProd(){
-        for (String i : prod.keySet()){
-            System.out.println(i);
+
+    public void addProduct(String productName, double price) {
+        products.put(productName, price);
+    }
+
+    public void printProducts() {
+        System.out.println("Products in " + name + ":");
+        for (Map.Entry<String, Double> entry : products.entrySet()) {
+            String productName = entry.getKey();
+            double price = entry.getValue();
+            System.out.println(productName + ": P" + price);
         }
+        System.out.println();
     }
 
-    public static void setShopName(String name){
-        shopName = name;
+    public void printMostExpensiveProduct() {
+        double maxPrice = Double.MIN_VALUE;
+        String maxProduct = "";
+
+        for (Map.Entry<String, Double> entry : products.entrySet()) {
+            double price = entry.getValue();
+            if (price > maxPrice) {
+                maxPrice = price;
+                maxProduct = entry.getKey();
+            }
+        }
+
+        System.out.println("Most expensive product in " + name + ": " + maxProduct + " (P" + maxPrice + ")");
+    }
+
+    public void printLeastExpensiveProduct() {
+        double minPrice = Double.MAX_VALUE;
+        String minProduct = "";
+
+        for (Map.Entry<String, Double> entry : products.entrySet()) {
+            double price = entry.getValue();
+            if (price < minPrice) {
+                minPrice = price;
+                minProduct = entry.getKey();
+            }
+        }
+
+        System.out.println("Least expensive product in " + name + ": " + minProduct + " (P" + minPrice + ")");
     }
 
 }

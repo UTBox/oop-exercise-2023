@@ -1,19 +1,39 @@
 
 
 public class ShopPricePrinter {
-  static Mercury mercury = new Mercury();
-
   public static void main(String[] args) {
 
-    // TODO: You can remove these print statements whenever you like.
-    System.out.println("Rose Pharmacy water is worth P40.");
-    System.out.println("Dimsum Break water is worth P50.");
+    // Creating shops and adding products
+    Shop groceryShop = new Shop("Grocery Shop");
+    groceryShop.addProduct("Apples", 12);
+    groceryShop.addProduct("Bread", 34);
+    groceryShop.addProduct("Milk", 56);
 
+    Shop electronicsShop = new Shop("Electronics Shop");
+    electronicsShop.addProduct("Smartphone", 23000);
+    electronicsShop.addProduct("Laptop", 62000);
+    electronicsShop.addProduct("Headphones", 1200);
 
-    // TODO: For each shop, print all their products
+    Shop clothingShop = new Shop("Pet Shop");
+    clothingShop.addProduct("Cat", 3500);
+    clothingShop.addProduct("Dog", 8000);
+    clothingShop.addProduct("Rabbit", 5200);
 
-    // TODO: For each shop, print the most expensive product
+    // Printing products and product details for each shop
+    groceryShop.printProducts();
+    electronicsShop.printProducts();
+    clothingShop.printProducts();
 
-    // TODO: For each shop, print the least expensive product
+    // Printing the most expensive product for each shop
+    System.out.println("\n");
+    groceryShop.printMostExpensiveProduct();
+    electronicsShop.printMostExpensiveProduct();
+    clothingShop.printMostExpensiveProduct();
+
+    // Printing the least expensive product for each shop
+    System.out.println("\n");
+    groceryShop.printLeastExpensiveProduct();
+    electronicsShop.printLeastExpensiveProduct();
+    clothingShop.printLeastExpensiveProduct();
   }
 }
