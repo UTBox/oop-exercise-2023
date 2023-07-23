@@ -1,24 +1,27 @@
 public class ShopPricePrinter {
   public static void main(String[] args) {
-    TobysBadmintonShop myShop1 = new TobysBadmintonShop();
+
+    PriceItem priceItem = new PriceItem(2500);
+
+
+    TobysBadmintonShop tobysBadmintonShop = new TobysBadmintonShop();
     System.out.println("=Tobys Badminton Shop=");
-    System.out.println("-" + myShop1.firstItem);
-    System.out.println("-" + myShop1.secondItem);
-    System.out.println(myShop1.thirdItem + "\n");
+    tobysBadmintonShop.tobysBadmintonItem();
+    System.out.println("Badminton Racquet Price  " + priceItem.getBadmintonRacquetPrice());
+    tobysBadmintonShop.tobysBadmintonShopExpensive();
+    tobysBadmintonShop.tobysBadmintonLeastItem();
 
+    NikeShop nikeShop = new NikeShop();
+    System.out.println("\n =Nike Shop=");
+    nikeShop.nikeShopItems();
+    nikeShop.nikeExpensiveItem();
+    nikeShop.nikeLeastItem();
 
-    NikeShop myShop2 = new NikeShop();
-    System.out.println("=Nike Shop=");
-    System.out.println("-" + myShop2.firstItem);
-    System.out.println("-" + myShop2.secondItem);
-    System.out.println("-" + myShop2.thirdItem + "\n");
-
-    AdidasShop myShop3 = new AdidasShop();
-    System.out.println("=Adidas Shop=");
-    System.out.println("-" + myShop3.firstItem);
-    System.out.println("-" + myShop3.secondItem);
-    System.out.println("-" + myShop3.thirdItem);
-
+    AdidasShop adidasShop = new AdidasShop();
+    System.out.println("\n =Adidas Shop=");
+    adidasShop.adidasItems();
+    adidasShop.adidasExpensiveItem();
+    adidasShop.adidasLeastItem();
 
   }
 }
