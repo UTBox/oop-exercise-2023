@@ -31,7 +31,7 @@ public class Main {
     private static HelmetShop createHelmetShop() {
         return new HelmetShop("Beavis and Butthead Head Protection Shop", List.of(
                 new Helmet("Helmet of Redemption", 10090),
-                new Helmet("Helm of Immortality", 1231),
+                new Helmet("Helm of Immortality", 9999999),
                 new Helmet("Crown of Catriona Gray", 9999999)
         ));
     }
