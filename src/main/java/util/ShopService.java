@@ -27,18 +27,21 @@ public class ShopService {
         return shops;
     }
 
-    private Optional<Shop> getShopByName(String shopName) {
+    public Optional<Shop> getShopByName(String shopName) {
         return shops.stream()
                 .filter(shop -> shop.getShopName().equalsIgnoreCase(shopName))
                 .findFirst();
     }
 
     public void addProductToShop(String shopName, String productName, BigDecimal price) throws Exception {
-        Optional<Shop> optionalShop = getShopByName(shopName);
-        if (optionalShop.isEmpty()) {
+        if (!isShopExisting(shopName)) {
             throw new Exception("Shop not found.");
         }
-        Shop shop = optionalShop.get();
+        Shop shop = getShopByName(shopName).get();
         shop.addProduct(new ShopProduct(productName, price));
+    }
+
+    public boolean isShopExisting(String shopName) {
+        return getShopByName(shopName).isPresent();
     }
 }

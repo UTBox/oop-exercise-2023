@@ -29,11 +29,35 @@ public class ShopPricePrinter {
   }
 
   public static void printShopProducts(Shop shop) {
+    if (shop.getProducts().isEmpty()) {
+      System.out.println("Shop has no products.");
+    }
+
     for (ShopProduct product : shop.getProducts()) {
       String output = String.format("%s worth %s%s", product.getProductName(), PESO_ACRONYM, product.getProductPrice());
       System.out.println(output);
     }
     System.out.println(); // Insert empty line after printing list
+  }
+
+  public static void printMostExpensiveProductsForShop(Shop shop) {
+    if(shop.getProducts().size() > 1) {
+      System.out.printf("The most expensive product(s) in %s is/are:%n", shop.getShopName());
+      printProductList(shop.getMostExpensiveProducts());
+      return;
+    }
+
+    System.out.println(shop.getShopName() + " does not have enough products for comparison. Add at least 2 products to shop.");
+  }
+
+  public static void printCheapestProductsForShop(Shop shop) {
+    if(shop.getProducts().size() > 1) {
+      System.out.printf("The cheapest product(s) in %s is/are:", shop.getShopName());
+      printProductList(shop.getCheapestProducts());
+      return;
+    }
+
+    System.out.println(shop.getShopName() + " does not have enough products for comparison. Add at least 2 products to shop.");
   }
 
   public static void printMostExpensiveProductsForEachShop(List<Shop> listOfShops) {

@@ -1,6 +1,7 @@
 package model;
 
 import java.math.BigDecimal;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -10,6 +11,7 @@ public class Shop implements ShopInterface {
 
     public Shop(String shopName) {
         this.shopName = shopName;
+        this.products = new ArrayList<>();
     }
 
     public Shop(String shopName, List<ShopProduct> products) {
