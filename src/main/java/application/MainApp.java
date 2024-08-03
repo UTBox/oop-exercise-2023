@@ -1,104 +1,107 @@
 package application;
 
 import model.Shop;
+import util.MenuDisplayService;
+import util.InputService;
 import util.ShopPricePrinter;
 import util.ShopService;
 
 import java.math.BigDecimal;
 import java.util.List;
-import java.util.Optional;
-import java.util.Scanner;
 
 public class MainApp {
 
     private ShopService shopService;
+    private InputService inputService;
 
-    public MainApp() {
-        this.shopService = new ShopService();
+    public MainApp(ShopService shopService, InputService inputService) {
+        this.shopService = shopService;
+        this.inputService = inputService;
     }
 
     public static void main(String[] args) {
-        MainApp app = new MainApp();
-        app.runRoutine(new Scanner(System.in));
+        MainApp app = new MainApp(new ShopService(), new InputService());
+        app.runRoutine();
     }
 
-    public void runRoutine(Scanner scanner) {
+    public void runRoutine() {
         String userInput = "";
 
         do {
-            printMainInterface();
-            userInput = scanner.nextLine();
-            processUserInput(userInput, scanner);
+            MenuDisplayService.printMainInterface();
+            userInput = inputService.getStringInput();
+            processUserInput(userInput);
         } while(!userInput.equals("4"));
     }
 
-    public static void printMainInterface() {
-        System.out.printf("1. Add a shop%n" +
-                           "2. Add a product%n" +
-                           "3. Show shop products%n" +
-                           "4. Exit%n");
-    }
-
-    public void processUserInput(String userInput, Scanner scanner) {
-        String shopName;
-
+    public void processUserInput(String userInput) {
         switch (userInput) {
             case "1":
-                System.out.print("Enter shop name: ");
-                shopName = scanner.nextLine();
-                shopService.addShop(shopName);
+                addShopToList();
                 break;
             case "2":
-                double productPrice;
-                printShopNames();
-                System.out.print("Enter shop name: ");
-                shopName = scanner.nextLine();
-                System.out.print("Enter product name: ");
-                String productName = scanner.nextLine();
-                do {
-                    System.out.print("Enter product price: ");
-                    if (scanner.hasNextDouble()) {
-                        productPrice = scanner.nextDouble();
-                        break;
-                    } else {
-                        System.out.println("Invalid input. Please try again.");
-                    }
-                } while (true);
-                scanner.nextLine(); // Clear scanner buffer
-
-                try {
-                    shopService.addProductToShop(shopName, productName, BigDecimal.valueOf(productPrice));
-                } catch (Exception e) {
-                    System.out.println("Error: " + e.getMessage());
-                }
+                addProductToShop();
                 break;
             case "3":
-                printShopNames();
-                System.out.print("Enter shop name: ");
-                shopName = scanner.nextLine();
-                if (!shopService.isShopExisting(shopName)) {
-                    System.out.println("Shop not found.");
-                }
-                    Optional<Shop> optionalShop = shopService.getShopByName(shopName);
-                    if (optionalShop.isEmpty()) {
-                        System.out.println("Shop does not exist.");
-                        break;
-                    }
-                    ShopPricePrinter.printShopProducts(optionalShop.get());
-                    ShopPricePrinter.printMostExpensiveProductsForShop(optionalShop.get());
-                    ShopPricePrinter.printCheapestProductsForShop(optionalShop.get());
+                displayShopProducts();
                 break;
             case "4":
                 System.out.println("Program terminated.");
                 break;
             default:
-                System.out.println("Invalid input.");
+                System.out.println("Invalid input. Please try again.");
         }
     }
 
-    public void printShopNames() {
-        System.out.println("List of shop names: ");
+    private void addShopToList() {
+        System.out.print("Enter shop name: ");
+        String shopName = inputService.getStringInput();
+        shopService.addShop(shopName);
+        System.out.printf("%s successfully added to list of shops.%n", shopName);
+    }
+
+    private void addProductToShop() {
+        displayShopNames();
+        System.out.print("Enter shop name: ");
+        String shopName = inputService.getStringInput();
+
+        System.out.print("Enter product name: ");
+        String productName = inputService.getStringInput();
+
+        double productPrice = inputService.getValidPriceInput();
+        inputService.getStringInput(); // Clear scanner buffer
+
+        try {
+            shopService.addProductToShop(shopName, productName, BigDecimal.valueOf(productPrice));
+        } catch (Exception e) {
+            System.out.println("Error: " + e.getMessage() + System.lineSeparator());
+        }
+    }
+
+    private void displayShopProducts() {
+        displayShopNames();
+        System.out.print("Enter shop name: ");
+        String shopName = inputService.getStringInput();
+
+        if (!shopService.isShopExisting(shopName)) {
+            System.out.println("Shop not found.");
+            return;
+        }
+
+        Shop shop = shopService.getShopByName(shopName).get();
+        ShopPricePrinter.printShopProducts(shop);
+        ShopPricePrinter.printMostExpensiveProductsForShop(shop);
+        ShopPricePrinter.printCheapestProductsForShop(shop);
+    }
+
+    public void displayShopNames() {
         List<Shop> shopList = shopService.getListOfShops();
+        if (shopList.isEmpty()) {
+            System.out.println("The list of shops is empty.");
+            return;
+        }
+
+        System.out.println("List of shop names: ");
         for (Shop shop : shopList) {
             System.out.println(shop.getShopName());
         }
