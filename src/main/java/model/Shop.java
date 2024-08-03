@@ -1,3 +1,5 @@
+package model;
+
 import java.math.BigDecimal;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -5,6 +7,10 @@ import java.util.stream.Collectors;
 public class Shop implements ShopInterface {
     private String shopName;
     private List<ShopProduct> products;
+
+    public Shop(String shopName) {
+        this.shopName = shopName;
+    }
 
     public Shop(String shopName, List<ShopProduct> products) {
         this.shopName = shopName;
