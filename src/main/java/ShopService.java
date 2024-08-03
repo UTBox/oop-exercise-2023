@@ -15,4 +15,8 @@ public class ShopService {
     public void removeShop(String shopName) {
         shops.removeIf(shop -> shop.getShopName().equalsIgnoreCase(shopName));
     }
+
+    public List<Shop> getListOfShops() {
+        return shops;
+    }
 }

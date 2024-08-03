@@ -1,13 +1,14 @@
-import java.util.ArrayList;
+import java.math.BigDecimal;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class Shop implements ShopInterface {
     private String shopName;
     private List<ShopProduct> products;
 
-    public Shop(String shopName) {
+    public Shop(String shopName, List<ShopProduct> products) {
         this.shopName = shopName;
-        this.products = new ArrayList<>();
+        this.products = products;
     }
 
     public String getShopName() {
@@ -30,12 +31,26 @@ public class Shop implements ShopInterface {
     }
 
     @Override
-    public ShopProduct getMostExpensiveProduct() {
-        return null;
+    public List<ShopProduct> getMostExpensiveProducts() {
+        BigDecimal highestPrice = products.stream()
+                .map(ShopProduct::getProductPrice)
+                .max(BigDecimal::compareTo)
+                .orElse(BigDecimal.ZERO);
+
+        return products.stream()
+                .filter(product -> product.getProductPrice().compareTo(highestPrice) == 0)
+                .collect(Collectors.toList());
     }
 
     @Override
-    public ShopProduct getCheapestProduct() {
-        return null;
+    public List<ShopProduct> getCheapestProducts() {
+        BigDecimal minPrice = products.stream()
+                .map(ShopProduct::getProductPrice)
+                .min(BigDecimal::compareTo)
+                .orElse(BigDecimal.ZERO);
+
+        return products.stream()
+                .filter(product -> product.getProductPrice().compareTo(minPrice) == 0)
+                .collect(Collectors.toList());
     }
 }

@@ -1,10 +1,13 @@
+import java.math.BigDecimal;
+import java.math.RoundingMode;
+
 public class ShopProduct implements ProductInterface {
     private String productName;
-    private double productPrice;
+    private BigDecimal productPrice;
 
-    public ShopProduct(String productName, double productPrice) {
+    public ShopProduct(String productName, BigDecimal productPrice) {
         this.productName = productName;
-        this.productPrice = productPrice;
+        this.productPrice = productPrice.setScale(2, RoundingMode.HALF_UP);
     }
 
     public void setProductName(String productName) {
@@ -15,11 +18,11 @@ public class ShopProduct implements ProductInterface {
         return productName;
     }
 
-    public void setProductPrice(double productPrice) {
+    public void setProductPrice(BigDecimal productPrice) {
         this.productPrice = productPrice;
     }
 
-    public double getProductPrice() {
+    public BigDecimal getProductPrice() {
         return productPrice;
     }
 }
