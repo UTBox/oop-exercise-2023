@@ -33,6 +33,7 @@ public class ShopPricePrinter {
       System.out.println("Shop has no products.");
     }
 
+    System.out.printf("%s products:%n", shop.getShopName());
     for (ShopProduct product : shop.getProducts()) {
       String output = String.format("%s worth %s%s", product.getProductName(), PESO_ACRONYM, product.getProductPrice());
       System.out.println(output);
@@ -47,17 +48,17 @@ public class ShopPricePrinter {
       return;
     }
 
-    System.out.println(shop.getShopName() + " does not have enough products for comparison. Add at least 2 products to shop.");
+    System.out.println(shop.getShopName() + " does not have enough products for most expensive product comparison. Add at least 2 products to shop.");
   }
 
   public static void printCheapestProductsForShop(Shop shop) {
     if(shop.getProducts().size() > 1) {
-      System.out.printf("The cheapest product(s) in %s is/are:", shop.getShopName());
+      System.out.printf("The cheapest product(s) in %s is/are:%n", shop.getShopName());
       printProductList(shop.getCheapestProducts());
       return;
     }
 
-    System.out.println(shop.getShopName() + " does not have enough products for comparison. Add at least 2 products to shop.");
+    System.out.println(shop.getShopName() + " does not have enough products for cheapest product comparison. Add at least 2 products to shop.");
   }
 
   public static void printMostExpensiveProductsForEachShop(List<Shop> listOfShops) {
