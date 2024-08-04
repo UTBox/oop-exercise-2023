@@ -28,6 +28,7 @@ public class InputService {
                 break;
             } else {
                 System.out.println("Invalid input. Please try again.");
+                scanner.next(); // Consume invalid input
             }
         } while(true);
 

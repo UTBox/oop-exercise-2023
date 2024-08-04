@@ -1,5 +1,6 @@
 package util;
 
+import application.EmptyListException;
 import model.Shop;
 import model.ShopProduct;
 
@@ -30,7 +31,7 @@ public class ShopPricePrinter {
 
   public static void printShopProducts(Shop shop) {
     if (shop.getProducts().isEmpty()) {
-      System.out.println("Shop has no products.");
+      throw new EmptyListException("The list of products is empty.");
     }
 
     System.out.printf("%s products:%n", shop.getShopName());

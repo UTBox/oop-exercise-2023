@@ -1,5 +1,6 @@
 package util;
 
+import application.ShopNotFoundException;
 import model.Shop;
 import model.ShopProduct;
 
@@ -33,11 +34,8 @@ public class ShopService {
                 .findFirst();
     }
 
-    public void addProductToShop(String shopName, String productName, BigDecimal price) throws Exception {
-        if (!isShopExisting(shopName)) {
-            throw new Exception("Shop not found.");
-        }
-        Shop shop = getShopByName(shopName).get();
+    public void addProductToShop(String shopName, String productName, BigDecimal price) throws RuntimeException {
+        Shop shop = getShopByName(shopName).orElseThrow(() -> new ShopNotFoundException(shopName));
         shop.addProduct(new ShopProduct(productName, price));
     }
 
