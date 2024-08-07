@@ -8,14 +8,6 @@ import java.util.List;
 
 public class ShopPricePrinter {
 
-  /*
-    TODO:
-      - util.ShopPricePrinter accepts any shop and prints ff:
-         - Print all their products
-         - Print the most expensive product
-         - Print the least expensive product
-  */
-
   private static final String PESO_ACRONYM = "PHP";
 
   public ShopPricePrinter() {
