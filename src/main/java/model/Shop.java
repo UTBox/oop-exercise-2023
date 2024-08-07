@@ -14,11 +14,6 @@ public class Shop implements ShopInterface {
         this.products = new ArrayList<>();
     }
 
-    public Shop(String shopName, List<ShopProduct> products) {
-        this.shopName = shopName;
-        this.products = products;
-    }
-
     public String getShopName() {
         return shopName;
     }
